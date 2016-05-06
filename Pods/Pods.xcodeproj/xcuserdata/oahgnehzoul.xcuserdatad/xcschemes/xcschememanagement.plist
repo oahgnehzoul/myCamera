@@ -4,7 +4,42 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>HexColors.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>IconFont.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KLCPopup.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RDVTabBarController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Routable.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>WCAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -12,7 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1469924FC52F60B0068FA24EEFCB3EFC</key>
+		<key>3BC3D6C12C23441B9681198FCB7CBF18</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>42042589756FFE5D820B2F1A9A2FAC05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4487D5CA56133F646E601F84D9451823</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>55F7A9FA18D797218B78952AF04C4493</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA5BCFD70A8AC08B515DA5CDBCD9CA49</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C8C3C09BC3A558C1E78DBBB308316BFF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D6CAE01C447AE762D7ECE807AE449A99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E9EF397B95762DDB254C71DDCB4B1381</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,0 +1,48 @@
+//
+//  exegsCamera-Prefix.pch
+//  exegsCamera
+//
+//  Created by oahgnehzoul on 16/5/6.
+//  Copyright © 2016年 exegs. All rights reserved.
+//
+
+#ifndef exegsCamera_Prefix_pch
+#define exegsCamera_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#define KWidth [UIScreen mainScreen].bounds.size.width
+#define KHeight [UIScreen mainScreen].bounds.size.height
+
+#import "RDVTabBarController.h"
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+#import "UIView+JWAdditions.h"
+
+// UI
+#import "MDFont.h"
+
+#import "HexColor.h"
+// colors
+#define kMDBaseColor                @"#FE434C"
+#define kMDBorderColor              @"#EBEBEB"
+#define kMDBackgroundColor          @"#F1F1F1"
+
+#define kMDColorBaseLevel1              @"#FFD300"
+#define kMDColorBaseLevel2              @"#1A1A1A"
+#define kMDColorBaseLevel3              @"#4E4E4C"
+#define kMDColorBaseLevel4              @"#909090"
+#define kMDColorBaseLevel5              @"#BDBDBD"
+#define kMDColorBaseLevel6              @"#F0F0F0"
+
+#define kMDColorControlLevel1       @"#FF5E45"
+#define kMDColorControlLevel2       @"#2DBFFF"
+#define kMDColorControlLevel3       @"#56DB00"
+
+
+#endif /* exegsCamera_Prefix_pch */
