@@ -77,10 +77,6 @@
 		603058381C315034009D1750 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6030583B1C315034009D1750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6030583D1C315034009D1750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6030584A1C3151ED009D1750 /* pg_edit_sdk_cdb_piratesdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = pg_edit_sdk_cdb_piratesdk.framework; sourceTree = "<group>"; };
-		6030584B1C3151ED009D1750 /* pg_edit_sdk_common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = pg_edit_sdk_common.framework; sourceTree = "<group>"; };
-		6030584C1C3151ED009D1750 /* pg_edit_sdk_resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = pg_edit_sdk_resource.bundle; sourceTree = "<group>"; };
-		6030584D1C3151ED009D1750 /* PhotoEditFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PhotoEditFramework.framework; sourceTree = "<group>"; };
 		603A542C1CDC4B3200E3A151 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		603A542D1CDC4B3200E3A151 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		603A542F1CDC557C00E3A151 /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
@@ -229,7 +225,6 @@
 				603A54761CDCBFB000E3A151 /* Base */,
 				603A54701CDC80DA00E3A151 /* common */,
 				60E816221CD934DD00B70814 /* ALAssetsLibrary-CustomPhotoAlbum */,
-				603058491C3151CB009D1750 /* camera360 */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -241,17 +236,6 @@
 				60E816261CD9376700B70814 /* image */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		603058491C3151CB009D1750 /* camera360 */ = {
-			isa = PBXGroup;
-			children = (
-				6030584A1C3151ED009D1750 /* pg_edit_sdk_cdb_piratesdk.framework */,
-				6030584B1C3151ED009D1750 /* pg_edit_sdk_common.framework */,
-				6030584C1C3151ED009D1750 /* pg_edit_sdk_resource.bundle */,
-				6030584D1C3151ED009D1750 /* PhotoEditFramework.framework */,
-			);
-			path = camera360;
 			sourceTree = "<group>";
 		};
 		603A54381CDC5C7D00E3A151 /* NavTabs */ = {

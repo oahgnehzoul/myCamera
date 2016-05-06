@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <PhotoEditFramework/PhotoEditFramework.h>
 #import "RootViewController.h"
 @interface AppDelegate ()
 
