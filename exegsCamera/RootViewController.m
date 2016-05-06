@@ -20,9 +20,9 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.viewControllers =@[
-                                [[UINavigationController alloc] initWithRootViewController:[[ViewController1 alloc] init]],
-                                [[UINavigationController alloc] initWithRootViewController:[[ViewController2 alloc] init]],
-                                [[UINavigationController alloc] initWithRootViewController:[[ViewController3 alloc] init]]
+                                [[JWNavigationViewController alloc] initWithRootViewController:[[ViewController1 alloc] init]],
+                                [[JWNavigationViewController alloc] initWithRootViewController:[[ViewController2 alloc] init]],
+                                [[JWNavigationViewController alloc] initWithRootViewController:[[ViewController3 alloc] init]]
                                 ];
     
     }
@@ -31,7 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.fd_prefersNavigationBarHidden = YES;
     RDVTabBar *tabBar = [self tabBar];
     NSArray *titles = @[@"挑战",@"拍照",@"发现"];
     NSArray *icons = @[@"MDTabA",@"MDTabC",@"MDTabE"];

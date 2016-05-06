@@ -22,10 +22,19 @@
 #import <Foundation/Foundation.h>
 #endif
 
+#import "JWNavigationViewController.h"
 #import "UIView+JWAdditions.h"
 
+#import "RootViewController.h"
+
+#import "MDUtil.h"
+#import "Routable.h"
+
+#import <CoreLocation/CoreLocation.h>
 // UI
 #import "MDFont.h"
+#define APP_SCREEN_WIDTH     [UIScreen mainScreen].bounds.size.width
+#define APP_SCREEN_HEIGHT    [UIScreen mainScreen].bounds.size.height
 
 #import "HexColor.h"
 // colors
