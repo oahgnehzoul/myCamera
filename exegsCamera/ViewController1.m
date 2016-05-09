@@ -7,10 +7,11 @@
 //
 
 #import "ViewController1.h"
-
-@interface ViewController1 ()
+#import "UMSocial.h"
+@interface ViewController1 ()<UMSocialUIDelegate>
 
 @property (nonatomic, strong) UIImageView *imgView;
+@property (nonatomic, strong) UIButton *shareButton;
 
 @end
 
@@ -29,8 +30,26 @@
     _imgView.userInteractionEnabled = YES;
     [_imgView addGestureRecognizer:tap];
     [self.view addSubview:_imgView];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.shareButton];
+
 }
 
+- (UIButton *)shareButton {
+    if (!_shareButton) {
+        _shareButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        _shareButton.titleLabel.font = [UIFont fontWithName:@"iconfont" size:15];
+        [_shareButton setTitle:@"\U0000e601" forState:UIControlStateNormal];
+        [_shareButton setTitleColor:[UIColor colorWithHexString:kMDColorBaseLevel2] forState:UIControlStateNormal];
+        [_shareButton addTarget:self action:@selector(doShare) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _shareButton;
+}
+-(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
+    NSLog(@"%@",platformName);
+}
+- (void)doShare {
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:kMDUMengAppKey shareText:@"123" shareImage:[UIImage imageNamed:@"1.jpg"] shareToSnsNames:@[UMShareToQQ,UMShareToSina,UMShareToWechatSession] delegate:self];
+}
 - (void)doTap {
     [[MDImageEditorService sharedInstance] startWithImage:self.imgView.image completionHandler:^(NSError *error, UIImage *image) {
         if (image) {

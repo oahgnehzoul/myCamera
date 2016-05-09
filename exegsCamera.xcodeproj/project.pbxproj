@@ -67,6 +67,8 @@
 		603A54FC1CDD1F2F00E3A151 /* MDNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A54F91CDD1F2F00E3A151 /* MDNavigator.m */; };
 		603A54FD1CDD1F2F00E3A151 /* MDNavigatorMaps.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A54FB1CDD1F2F00E3A151 /* MDNavigatorMaps.m */; };
 		603A55001CDD205C00E3A151 /* UIViewController+MDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A54FF1CDD205C00E3A151 /* UIViewController+MDAdditions.m */; };
+		605034EA1CE08E9700930E27 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 605034E91CE084F700930E27 /* iconfont.ttf */; };
+		6074D2FF1CE07EA400D993DA /* MDShareService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074D2FE1CE07EA400D993DA /* MDShareService.m */; };
 		60E816251CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E816241CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		60E8162F1CD9376700B70814 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60E816271CD9376700B70814 /* 1.jpg */; };
 		60E816301CD9376700B70814 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60E816281CD9376700B70814 /* 2.jpg */; };
@@ -168,6 +170,9 @@
 		603A54FB1CDD1F2F00E3A151 /* MDNavigatorMaps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNavigatorMaps.m; sourceTree = "<group>"; };
 		603A54FE1CDD205C00E3A151 /* UIViewController+MDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MDAdditions.h"; sourceTree = "<group>"; };
 		603A54FF1CDD205C00E3A151 /* UIViewController+MDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MDAdditions.m"; sourceTree = "<group>"; };
+		605034E91CE084F700930E27 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = iconfont.ttf; path = exegsCamera/iconfont.ttf; sourceTree = SOURCE_ROOT; };
+		6074D2FD1CE07EA400D993DA /* MDShareService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDShareService.h; sourceTree = "<group>"; };
+		6074D2FE1CE07EA400D993DA /* MDShareService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDShareService.m; sourceTree = "<group>"; };
 		60E816231CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		60E816241CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		60E816271CD9376700B70814 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -278,6 +283,7 @@
 		603058441C3150E9009D1750 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				605034E91CE084F700930E27 /* iconfont.ttf */,
 				603A546D1CDC5EE700E3A151 /* fonts.bundle */,
 				60E816261CD9376700B70814 /* image */,
 			);
@@ -315,6 +321,7 @@
 		603A54611CDC5DCA00E3A151 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6074D2FC1CE07E4F00D993DA /* ShareManager */,
 				603A54F31CDD1DDA00E3A151 /* ImageEditorManager */,
 				603A54621CDC5DCA00E3A151 /* FontManager */,
 			);
@@ -413,6 +420,15 @@
 				603A54FB1CDD1F2F00E3A151 /* MDNavigatorMaps.m */,
 			);
 			path = scheme;
+			sourceTree = "<group>";
+		};
+		6074D2FC1CE07E4F00D993DA /* ShareManager */ = {
+			isa = PBXGroup;
+			children = (
+				6074D2FD1CE07EA400D993DA /* MDShareService.h */,
+				6074D2FE1CE07EA400D993DA /* MDShareService.m */,
+			);
+			path = ShareManager;
 			sourceTree = "<group>";
 		};
 		60E816221CD934DD00B70814 /* ALAssetsLibrary-CustomPhotoAlbum */ = {
@@ -528,6 +544,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				605034EA1CE08E9700930E27 /* iconfont.ttf in Resources */,
 				60E816311CD9376700B70814 /* IMG_0533.JPG in Resources */,
 				603A54E31CDCF8DE00E3A151 /* pg_edit_sdk_resource.bundle in Resources */,
 				60E816361CD9376700B70814 /* panda.jpeg in Resources */,
@@ -642,6 +659,7 @@
 				60E816391CD93D4E00B70814 /* PHPhotoLibrary+CustomPhotoAlbum.m in Sources */,
 				603A54921CDCDF4400E3A151 /* BaseNavigationViewController.m in Sources */,
 				603A54341CDC558400E3A151 /* ViewController2.m in Sources */,
+				6074D2FF1CE07EA400D993DA /* MDShareService.m in Sources */,
 				6030582E1C315034009D1750 /* main.m in Sources */,
 				60E816251CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				603A54731CDC80DA00E3A151 /* UIView+JWAdditions.m in Sources */,

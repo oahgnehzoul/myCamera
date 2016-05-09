@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "MDShareService.h"
 #import <PhotoEditFramework/PhotoEditFramework.h>
 @interface AppDelegate ()
 
@@ -46,8 +47,16 @@
         [UIApplication sharedApplication].shortcutItems = @[itemA];
     }
     
+    
+    // init font
+    [TBCityIconFont setFontName:@"iconfont"];
     // camera360
     [[MDImageEditorService sharedInstance] setup];
+    
+    md_dispatch_async_on_global_thread(^{
+        [[MDShareService shareInstance] setup];
+    });
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
