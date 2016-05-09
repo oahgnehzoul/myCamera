@@ -32,12 +32,15 @@
 #import "Routable.h"
 #import "MDNavigator.h"
 #import "MDNavigatorMaps.h"
+#import "MBProgressHUD.h"
+#import "UIImageView+WebCache.h"
 
 #import <CoreLocation/CoreLocation.h>
 // UI
 #import "MDFont.h"
 #define APP_SCREEN_WIDTH     [UIScreen mainScreen].bounds.size.width
 #define APP_SCREEN_HEIGHT    [UIScreen mainScreen].bounds.size.height
+#define APP_CONTENT_WIDTH    APP_SCREEN_WIDTH
 
 #import "HexColor.h"
 

@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
-#import "MDShareService.h"
 #import <PhotoEditFramework/PhotoEditFramework.h>
 @interface AppDelegate ()
 
@@ -54,7 +53,7 @@
     [[MDImageEditorService sharedInstance] setup];
     
     md_dispatch_async_on_global_thread(^{
-        [[MDShareService shareInstance] setup];
+//        [[MDShareService shareInstance] setup];
     });
 
 }

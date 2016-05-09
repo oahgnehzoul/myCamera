@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,20 +49,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>iOS-QR-Code-Encoder.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3BC3D6C12C23441B9681198FCB7CBF18</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>42042589756FFE5D820B2F1A9A2FAC05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4487D5CA56133F646E601F84D9451823</key>
+		<key>45596EEF26239801B4852A0BF25FA724</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,22 +72,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA5BCFD70A8AC08B515DA5CDBCD9CA49</key>
+		<key>60D836EC438F437AA475F64016978F6D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C8C3C09BC3A558C1E78DBBB308316BFF</key>
+		<key>656C005C1CFABE628604EEADA091546A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D6CAE01C447AE762D7ECE807AE449A99</key>
+		<key>95FBA6DC46C62ED982D83CABB9581271</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE11B9B9C3A6DE66B661822768D1357B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E9EF397B95762DDB254C71DDCB4B1381</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE25C0E79565E8F4131D21F92E1AB11A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

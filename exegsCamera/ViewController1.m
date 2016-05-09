@@ -48,7 +48,7 @@
     NSLog(@"%@",platformName);
 }
 - (void)doShare {
-    [UMSocialSnsService presentSnsIconSheetView:self appKey:kMDUMengAppKey shareText:@"123" shareImage:[UIImage imageNamed:@"1.jpg"] shareToSnsNames:@[UMShareToQQ,UMShareToSina,UMShareToWechatSession] delegate:self];
+//    [UMSocialSnsService presentSnsIconSheetView:self appKey:kMDUMengAppKey shareText:@"123" shareImage:[UIImage imageNamed:@"1.jpg"] shareToSnsNames:@[UMShareToQQ,UMShareToSina,UMShareToWechatSession] delegate:self];
 }
 - (void)doTap {
     [[MDImageEditorService sharedInstance] startWithImage:self.imgView.image completionHandler:^(NSError *error, UIImage *image) {
