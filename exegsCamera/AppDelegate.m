@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "UMSocial.h"
 #import <PhotoEditFramework/PhotoEditFramework.h>
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [UMSocialData setAppKey:kMDUMengAppKey];
+    [UMSocialWechatHandler setWXAppId:kMDWeChatAppKey appSecret:kMDWeChatAppSecret url:@"http://www.umeng.com/social"];
+    [UMSocialQQHandler setQQWithAppId:kMDQQAppId appKey:kMDQQAppKey url:@"http://www.umeng.com/social"];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:kMDWeiboAuthCallback];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:kMDWeiboAppKey secret:kMDWeiboAppSecret RedirectURL:kMDWeiboAuthCallback];
     
     [self setupWithOptions:nil];
     JWNavigationViewController *nav = [[JWNavigationViewController alloc] initWithRootViewController:[[RootViewController alloc] init]];
@@ -30,6 +37,14 @@
     return YES;
 }
 
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (!result) {
+        NSLog(@"false");
+    }
+    return result;
+}
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
     if ([shortcutItem.type isEqualToString:@"photo"]) {
@@ -54,7 +69,7 @@
     
     md_dispatch_async_on_global_thread(^{
 //        [[MDShareService shareInstance] setup];
-        [[MDShareService sharedInstance] setup];
+//        [[MDShareService sharedInstance] setup];
 
     });
 

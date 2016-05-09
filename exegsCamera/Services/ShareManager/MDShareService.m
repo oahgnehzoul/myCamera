@@ -326,8 +326,8 @@
 }
 
 + (BOOL)isFromShareScheme:(NSURL *)url {
-//    return [url.scheme isEqualToString:kMDWeChatAppKey] || [url.scheme isEqualToString:kMDQQAppScheme] || [url.scheme isEqualToString:kMDQQAppScheme2] || [url.scheme isEqualToString:kMDWeiboAppScheme] || [url.scheme isEqualToString:kMDWeiboUMengAppScheme];
-    return YES;
+    return [url.scheme isEqualToString:kMDWeChatAppKey] || [url.scheme isEqualToString:kMDQQAppScheme] || [url.scheme isEqualToString:kMDQQAppScheme2] || [url.scheme isEqualToString:kMDWeiboAppScheme] || [url.scheme isEqualToString:kMDWeiboUMengAppScheme];
+//    return YES;
 }
 
 + (BOOL)openURL:(NSURL *)url {
