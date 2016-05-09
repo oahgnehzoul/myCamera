@@ -8,7 +8,9 @@
 
 #import "ViewController1.h"
 #import "UMSocial.h"
-@interface ViewController1 ()<UMSocialUIDelegate>
+#import "MDShareService.h"
+#import "MDShareView.h"
+@interface ViewController1 ()<MDShareViewDelegate>
 
 @property (nonatomic, strong) UIImageView *imgView;
 @property (nonatomic, strong) UIButton *shareButton;
@@ -44,12 +46,28 @@
     }
     return _shareButton;
 }
--(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
-    NSLog(@"%@",platformName);
-}
+//-(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
+//    NSLog(@"%@",platformName);
+//}
 - (void)doShare {
-//    [UMSocialSnsService presentSnsIconSheetView:self appKey:kMDUMengAppKey shareText:@"123" shareImage:[UIImage imageNamed:@"1.jpg"] shareToSnsNames:@[UMShareToQQ,UMShareToSina,UMShareToWechatSession] delegate:self];
+    
+    if ([self.view viewWithTag:999]) {
+        [MDShareView dismissInView:self.view animated:YES];
+        return;
+    }
+    MDShareView *shareView = [MDShareView presentInView:[MDUtil mainWindow] withShareTypes:MDShareTypeWeChatSession | MDShareTypeWeibo | MDShareTypeQQ animated:YES];
+    shareView.tag = 999;
+    shareView.delegate = self;
 }
+
+- (MDShareItem *)itemForShare:(MDShareType)shareType {
+    MDShareItem *item = [MDShareItem new];
+    item.title = @"分享图片";
+    item.image = [UIImage imageNamed:@"1.jpg"];
+    item.url = @"http://www.baidu.com";
+    return item;
+}
+
 - (void)doTap {
     [[MDImageEditorService sharedInstance] startWithImage:self.imgView.image completionHandler:^(NSError *error, UIImage *image) {
         if (image) {

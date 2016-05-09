@@ -40,10 +40,10 @@
 
 - (void)setup {
     [UMSocialData setAppKey:kMDUMengAppKey];
-//    [UMSocialWechatHandler setWXAppId:kMDWeChatAppKey appSecret:kMDWeChatAppSecret url:@"http://www.umeng.com/social"];
-//    [UMSocialQQHandler setQQWithAppId:kMDQQAppId appKey:kMDQQAppKey url:@"http://www.umeng.com/social"];
-    //[UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:kMDWeiboAuthCallback];
-//    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:kMDWeiboAppKey secret:kMDWeiboAppSecret RedirectURL:kMDWeiboAuthCallback];
+    [UMSocialWechatHandler setWXAppId:kMDWeChatAppKey appSecret:kMDWeChatAppSecret url:@"http://www.umeng.com/social"];
+    [UMSocialQQHandler setQQWithAppId:kMDQQAppId appKey:kMDQQAppKey url:@"http://www.umeng.com/social"];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:kMDWeiboAuthCallback];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:kMDWeiboAppKey secret:kMDWeiboAppSecret RedirectURL:kMDWeiboAuthCallback];
 }
 
 - (BOOL)isShareTypeEnabled:(MDShareType)shareType {

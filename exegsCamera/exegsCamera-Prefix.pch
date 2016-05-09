@@ -34,7 +34,7 @@
 #import "MDNavigatorMaps.h"
 #import "MBProgressHUD.h"
 #import "UIImageView+WebCache.h"
-
+#import "MDShareService.h"
 #import <CoreLocation/CoreLocation.h>
 // UI
 #import "MDFont.h"
@@ -50,6 +50,21 @@
 
 // 友盟分享
 #define kMDUMengAppKey @"572ed1a6e0f55a7b09001ba3"
+
+#define kMDWeChatAppKey @"wx7fdeb2627318e526"
+#define kMDWeChatAppSecret @"eaea1eb5a3cebf52b618961fde692743"
+
+#define kMDQQAppScheme2 @"QQ41D7F2DD"
+#define kMDQQAppScheme @"tencent1104671453"
+#define kMDQQAppId @"1104671453"
+#define kMDQQAppKey @"f2mEEqpglvevLQhp"
+
+#define kMDWeiboAppKey @"83477276"
+#define kMDWeiboUMengAppScheme @"sina.5578534567e58e02560027d8"
+#define kMDWeiboAppScheme @"wb83477276"
+#define kMDWeiboAppSecret @"d1be19a6f815cb223a456c7369535c23"
+#define kMDWeiboAuthCallback @"https://api.weibo.com/oauth2/default.html"
+
 
 // 360api
 #import "MDImageEditorService.h"

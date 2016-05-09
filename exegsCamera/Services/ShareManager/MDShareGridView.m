@@ -136,32 +136,32 @@ const CGFloat kMDShareViewButtonIconSize = 50;
     
     UIColor *backgroundColor = [UIColor lightGrayColor];
     if (shareType == MDShareTypeWeChatSession) {
-        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e66f" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
+        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e602" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
         image = [UIImage iconWithInfo:iconInfo];
         backgroundColor = [UIColor colorWithHexString:kMDColorBaseLevel1];
         title = @"微信好友";
     } else if (shareType == MDShareTypeWeChatTimeline) {
-        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e665" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
+        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e606" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
         image = [UIImage iconWithInfo:iconInfo];
         backgroundColor = [UIColor colorWithHexString:kMDColorBaseLevel1];
         title = @"朋友圈";
     } else if (shareType == MDShareTypeQQ) {
-        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e671" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
+        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e603" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
         image = [UIImage iconWithInfo:iconInfo];
         backgroundColor = [UIColor colorWithHexString:kMDColorBaseLevel1];
         title = @"QQ";
     } else if (shareType == MDShareTypeWeibo) {
-        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e66e" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
+        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e605" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
         image = [UIImage iconWithInfo:iconInfo];
         backgroundColor = [UIColor colorWithHexString:kMDColorBaseLevel1];
         title = @"微博";
     } else if (shareType == MDShareTypeQRCode) {
-        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e694" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
+        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e604" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
         image = [UIImage iconWithInfo:iconInfo];
         backgroundColor = [UIColor clearColor];
         title = @"二维码";
     } else if (shareType == MDShareTypeClipboard) {
-        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e6fa" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
+        TBCityIconInfo *iconInfo = [TBCityIconInfo iconInfoWithText:@"\U0000e607" size:28 color:[UIColor colorWithHexString:kMDColorBaseLevel2]];
         image = [UIImage iconWithInfo:iconInfo];
         backgroundColor = [UIColor clearColor];
         title = @"复制";

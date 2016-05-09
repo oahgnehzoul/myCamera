@@ -54,6 +54,8 @@
     
     md_dispatch_async_on_global_thread(^{
 //        [[MDShareService shareInstance] setup];
+        [[MDShareService sharedInstance] setup];
+
     });
 
 }
