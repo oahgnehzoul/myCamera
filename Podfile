@@ -10,4 +10,5 @@ pod 'HexColors', '~> 2.2.1'
 pod 'Routable', '~> 0.1.1'
 pod 'iOS-QR-Code-Encoder'
 pod 'MBProgressHUD', '~> 0.9.1'
+pod "Qiniu", "~> 7.0"
 

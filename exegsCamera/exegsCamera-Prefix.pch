@@ -51,8 +51,8 @@
 // 友盟分享
 #define kMDUMengAppKey @"572ed1a6e0f55a7b09001ba3"
 
-#define kMDWeChatAppKey @"wx7fdeb2627318e526"
-#define kMDWeChatAppSecret @"eaea1eb5a3cebf52b618961fde692743"
+#define kMDWeChatAppKey @"wx327512affd2728c1"
+#define kMDWeChatAppSecret @"fb39128706f3f389ac406af05fa6a56d"
 
 #define kMDQQAppScheme2 @"QQ41E1C781"
 #define kMDQQAppScheme @"tencent1105315713"
