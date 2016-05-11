@@ -21,7 +21,7 @@
     if (self = [super init]) {
         self.viewControllers =@[
                                 [[JWNavigationViewController alloc] initWithRootViewController:[[ViewController1 alloc] init]],
-                                [[JWNavigationViewController alloc] initWithRootViewController:[[ViewController2 alloc] init]],
+                                [[ViewController2 alloc] init],
                                 [[JWNavigationViewController alloc] initWithRootViewController:[[ViewController3 alloc] init]]
                                 ];
     
@@ -70,13 +70,13 @@
     [super setSelectedIndex:selectedIndex];
 }
 
-//- (BOOL)shouldAutorotate {
-//    return NO;
-//}
-//
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskPortrait;
-//}
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 
 @end

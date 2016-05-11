@@ -42,11 +42,16 @@
 #define APP_SCREEN_HEIGHT    [UIScreen mainScreen].bounds.size.height
 #define APP_CONTENT_WIDTH    APP_SCREEN_WIDTH
 
+
+
 #import "HexColor.h"
 
 #define WEAKSELF typeof(self) __weak weakSelf = self;
 
 #import "TBCityIconFont.h"
+
+#define KQiniuAccessKey @"zTsYhgPOKqKCfy88R5lxpXtc259e3owyDvbkvZ_1"
+#define KQiniuSecretKey @"cr5CQi3USHVh-SoGaIhXJpxTC3qgjYYAM5w0RVvp"
 
 // 友盟分享
 #define kMDUMengAppKey @"572ed1a6e0f55a7b09001ba3"

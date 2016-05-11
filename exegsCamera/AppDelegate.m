@@ -10,6 +10,7 @@
 #import "RootViewController.h"
 #import "UMSocial.h"
 #import <PhotoEditFramework/PhotoEditFramework.h>
+#import "QiniuUploader.h"
 @interface AppDelegate ()
 
 @end
@@ -18,6 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [QiniuToken registerWithScope:@"exegscamera:a.jpg" SecretKey:KQiniuSecretKey Accesskey:KQiniuAccessKey TimeToLive:10];
+
     
     [UMSocialData setAppKey:kMDUMengAppKey];
     [UMSocialWechatHandler setWXAppId:kMDWeChatAppKey appSecret:kMDWeChatAppSecret url:@"http://www.umeng.com/social"];
@@ -37,7 +41,13 @@
     return YES;
 }
 
+- (BOOL)shouldAutorotate {
+    return NO;
+}
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
     BOOL result = [UMSocialSnsService handleOpenURL:url];
     if (!result) {

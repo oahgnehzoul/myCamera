@@ -171,6 +171,15 @@ typedef void (^JWTransitionBlock)(void);
     self.isTransitionInProgress = NO;
 }
 
+- (BOOL)shouldAutorotate {
+    return [self.topViewController shouldAutorotate];
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return [self.topViewController supportedInterfaceOrientations];
+}
+
+
 
 
 @end

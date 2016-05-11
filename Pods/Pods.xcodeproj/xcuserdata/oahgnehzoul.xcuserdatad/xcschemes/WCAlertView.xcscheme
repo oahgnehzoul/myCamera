@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F288F3715CF0DBD8AE95216F'
+               BlueprintIdentifier = 'E44B2304F56D5B28E0B6ACD1'
                BlueprintName = 'WCAlertView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libWCAlertView.a'>

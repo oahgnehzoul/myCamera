@@ -10,10 +10,19 @@
 #import "UMSocial.h"
 #import "MDShareService.h"
 #import "MDShareView.h"
+#import <QiniuSDK.h>
+#import "AFNetWorking.h"
+#import "QiniuUploader.h"
+
 @interface ViewController1 ()<MDShareViewDelegate,UMSocialUIDelegate>
 
 @property (nonatomic, strong) UIImageView *imgView;
 @property (nonatomic, strong) UIButton *shareButton;
+@property (nonatomic, strong) UIButton *uploadButton;
+
+@property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString *domain;
+@property (nonatomic, strong) UIImage *pickImage;
 
 @end
 
@@ -33,7 +42,10 @@
     [_imgView addGestureRecognizer:tap];
     [self.view addSubview:_imgView];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.shareButton];
-
+    
+    self.uploadButton.frame = CGRectMake(_imgView.left, _imgView.bottom + 20, 40, 40);
+    [self.view addSubview:self.uploadButton];
+    self.pickImage = _imgView.image;
 }
 
 - (UIButton *)shareButton {
@@ -46,6 +58,120 @@
     }
     return _shareButton;
 }
+
+- (UIButton *)uploadButton {
+    if (!_uploadButton) {
+        _uploadButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        _uploadButton.titleLabel.font = [UIFont fontWithName:@"iconfont" size:15];
+        [_uploadButton setTitle:@"\U0000e608" forState:UIControlStateNormal];
+        [_uploadButton setTitleColor:[UIColor colorWithHexString:kMDColorBaseLevel2] forState:UIControlStateNormal];
+        [_uploadButton addTarget:self action:@selector(doUpload) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _uploadButton;
+}
+
+- (void)doUpload {
+    
+    QiniuFile *file = [[QiniuFile alloc] initWithFileData:UIImageJPEGRepresentation(self.imgView.image, 1.0f)];
+    QiniuUploader *uploader = [[QiniuUploader alloc] init];
+    [uploader addFile:file];
+    [uploader setUploadOneFileSucceeded:^(AFHTTPRequestOperation *operation, NSInteger index, NSString *key){
+        NSLog(@"index:%ld key:%@",(long)index,key);
+    }];
+    
+    [uploader setUploadOneFileProgress:^(AFHTTPRequestOperation *operation, NSInteger index, double percent){
+        NSLog(@"index:%ld percent:%lf",(long)index,percent);
+        
+    }];
+    [uploader setUploadAllFilesComplete:^(void){
+        NSLog(@"complete");
+    }];
+    [uploader setUploadOneFileFailed:^(AFHTTPRequestOperation *operation, NSInteger index, NSDictionary *error){
+        NSLog(@"%@",error);
+    }];
+    [uploader startUpload];
+
+    
+//    [QiniuToken registerWithScope:@"exegscamera:a.jpg" SecretKey:KQiniuSecretKey Accesskey:KQiniuAccessKey TimeToLive:10];
+//    NSString *token = @"iN7NgwM31j4-BZacMjPrOQBs34UG1maYCAQmhdCV:EfmGKkmyhpPRrqLXFP1SVcmUJvU=:eyJzY29wZSI6InF0ZXN0YnVja2V0IiwiZGVhZGxpbmUiOjE0NjI4NjkyMDV9";
+//    QNUploadManager *upMnanger = [[QNUploadManager alloc] init];
+//    NSData *data = UIImagePNGRepresentation(self.imgView.image);
+//    [upMnanger putData:data key:@"fadf" token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+//        NSLog(@"info%@\n%@",info,resp);
+//    } option:nil];
+    
+    
+//    NSString *token = @"iN7NgwM31j4-BZacMjPrOQBs34UG1maYCAQmhdCV:EfmGKkmyhpPRrqLXFP1SVcmUJvU=:eyJzY29wZSI6InF0ZXN0YnVja2V0IiwiZGVhZGxpbmUiOjE0NjI4NjkyMDV9";
+    
+    //iN7NgwM31j4-BZacMjPrOQBs34UG1maYCAQmhdCV:tuSWvG7-vv8bpSBHEPAspEHYaxg=:eyJzY29wZSI6InF0ZXN0YnVja2V0IiwiZGVhZGxpbmUiOjE0NjI5MzU4ODB9
+    
+//    QNUploadManager *upManager = [[QNUploadManager alloc] init];
+//    NSData *data = [@"Hello, World!" dataUsingEncoding : NSUTF8StringEncoding];
+//    [upManager putData:data key:@"hello" token:token
+//              complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+//                  NSLog(@"%@", info);
+//                  NSLog(@"%@", resp);
+//              } option:nil];
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:@"http://115.231.183.102:9090/api/quick_start/simple_image_example_token.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.domain = responseObject[@"domain"];
+        self.token = responseObject[@"uptoken"];
+        [self uploadImageToQNFilePath:[self getImagePath:self.pickImage]];
+    }
+      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          NSLog(@"%@", error);
+      }];
+}
+
+- (void)uploadImageToQNFilePath:(NSString *)filePath {
+    QNUploadManager *upManager = [[QNUploadManager alloc] init];
+    QNUploadOption *uploadOption = [[QNUploadOption alloc] initWithMime:nil progressHandler:^(NSString *key, float percent) {
+        NSLog(@"percent == %.2f", percent);
+    }
+                                                                 params:nil
+                                                               checkCrc:NO
+                                                     cancellationSignal:nil];
+    [upManager putFile:filePath key:nil token:self.token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+        NSLog(@"info ===== %@", info);
+        NSLog(@"resp ===== %@", resp);
+        NSLog(@"%@/%@", self.domain, resp[@"key"]);
+//        [self.preViewImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.domain, resp[@"key"]]] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+        
+    }
+        option:uploadOption];
+}
+
+
+//照片获取本地路径转换
+- (NSString *)getImagePath:(UIImage *)Image {
+    NSString *filePath = nil;
+    NSData *data = nil;
+    if (UIImagePNGRepresentation(Image) == nil) {
+        data = UIImageJPEGRepresentation(Image, 1.0);
+    } else {
+        data = UIImagePNGRepresentation(Image);
+    }
+    
+    //图片保存的路径
+    //这里将图片放在沙盒的documents文件夹中
+    NSString *DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    
+    //文件管理器
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //把刚刚图片转换的data对象拷贝至沙盒中
+    [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
+    NSString *ImagePath = [[NSString alloc] initWithFormat:@"/theFirstImage.png"];
+    [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:ImagePath] contents:data attributes:nil];
+    
+    //得到选择后沙盒中图片的完整路径
+    filePath = [[NSString alloc] initWithFormat:@"%@%@", DocumentsPath, ImagePath];
+    return filePath;
+}
+
+
 -(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
     NSLog(@"%@",platformName);
 //    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:platformName];

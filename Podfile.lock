@@ -29,6 +29,8 @@ PODS:
   - Qiniu (7.0.17):
     - AFNetworking (~> 2.0)
     - HappyDNS (~> 0.2)
+  - QiniuUpload (1.5):
+    - AFNetworking (>= 2.0)
   - RDVTabBarController (1.1.9)
   - Reveal-iOS-SDK (1.6.2)
   - Routable (0.1.1)
@@ -45,6 +47,7 @@ DEPENDENCIES:
   - KLCPopup (~> 1.0)
   - MBProgressHUD (~> 0.9.1)
   - Qiniu (~> 7.0)
+  - QiniuUpload
   - RDVTabBarController (~> 1.1.9)
   - Reveal-iOS-SDK
   - Routable (~> 0.1.1)
@@ -61,6 +64,7 @@ SPEC CHECKSUMS:
   KLCPopup: 76c5a19227977f1e53d85236f9ef42257c168d98
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   Qiniu: 2c05af1f9d580c036b18faf832cc98e98bfb21bc
+  QiniuUpload: 723b717cff1ac94cbaa36f1276172185dfdde2c7
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   Routable: 42731c7757b9b7ad32dd84d988b3d5428b966dfd
