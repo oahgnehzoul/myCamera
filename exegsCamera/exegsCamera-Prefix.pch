@@ -36,6 +36,7 @@
 #import "UIImageView+WebCache.h"
 #import "MDShareService.h"
 #import <CoreLocation/CoreLocation.h>
+#import "WCAlertView.h"
 // UI
 #import "MDFont.h"
 #define APP_SCREEN_WIDTH     [UIScreen mainScreen].bounds.size.width

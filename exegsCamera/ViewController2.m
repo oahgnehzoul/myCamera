@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
     MyButtonTypeWallPaper = 3
 };
 
-@interface ViewController2 ()
+@interface ViewController2 ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UIImageView *backgroundView;
 
@@ -101,10 +101,46 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
             [MDNavigator openViewController:[[MDScanViewController alloc] init] animated:YES];
             break;
         }
+        case 2: {
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+                UIImagePickerController *imgPickerVC = [[UIImagePickerController alloc] init];
+                [imgPickerVC setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+                [imgPickerVC.navigationBar setBarStyle:UIBarStyleBlack];
+                [imgPickerVC setDelegate:self];
+                [imgPickerVC setAllowsEditing:NO];
+                //显示Image Picker
+                [self presentViewController:imgPickerVC animated:YES completion:nil];
+            } else {
+                [WCAlertView showAlertWithTitle:@"无相册可用" message:nil customizationBlock:^(WCAlertView *alertView) {
+                } completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
+                } cancelButtonTitle:nil otherButtonTitles:@"知道了", nil];
+            }
+        }
         default:
             break;
     }
 }
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *srcImage        = [info objectForKey:UIImagePickerControllerOriginalImage];
+    CIContext *context       = [CIContext contextWithOptions:nil];
+    CIDetector *detector     = [CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:nil];
+    CIImage *image           = [CIImage imageWithCGImage:srcImage.CGImage];
+    NSArray *features        = [detector featuresInImage:image];
+    CIQRCodeFeature *feature = [features firstObject];
+    NSString *result         = feature.messageString;
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (result) {
+//            [self handlerCode:result];
+        }
+    }];
+}
+
 
 
 - (BOOL)shouldAutorotate {
