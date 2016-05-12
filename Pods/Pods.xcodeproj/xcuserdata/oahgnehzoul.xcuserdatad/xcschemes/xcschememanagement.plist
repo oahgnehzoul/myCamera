@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MTBBarcodeScanner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,17 +82,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0A7350BC3F59E08DF414DA5483A7F889</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>261ED49D9F3A91E239745AA8BF9990C4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3D9F328016B761CB623977C15627D8E2</key>
+		<key>3842099CD2F2181344489F7FC0106C0D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -98,11 +93,6 @@
 			<true/>
 		</dict>
 		<key>42042589756FFE5D820B2F1A9A2FAC05</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>442AC213818306A22F1319FF5892DB1C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,22 +112,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>855D091807E703322633C1357F71AB5E</key>
+		<key>890A1D2245301B423D744A0AEA10D388</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B174F291A1CE2BFA875C0DA301B78778</key>
+		<key>8FEA3A26178E51EAF02D5000A52B7E0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BDEE7033B247C8D2CC83A769BB91B853</key>
+		<key>A1F27286A8AA1E7343F7F1BB942266B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B02B0D711576D527D6B84EF6A430EF56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5FD507144FC06105CD2015F43DBA328</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E07A3B3998136451FDF187ECFBC28D1F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E9EF397B95762DDB254C71DDCB4B1381</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED20C28FE5CB0C4E3BC2174894B2EB74</key>
 		<dict>
 			<key>primary</key>
 			<true/>

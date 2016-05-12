@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4F071A4DF88E5D613161D279'
+               BlueprintIdentifier = '6C90C8B1B8C49D10F3AD61CB'
                BlueprintName = 'Routable'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRoutable.a'>

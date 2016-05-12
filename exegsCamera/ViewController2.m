@@ -9,6 +9,7 @@
 #import "ViewController2.h"
 #import "ZLPhoto.h"
 #import "AlbumViewController.h"
+#import "MDScanViewController.h"
 typedef NS_ENUM(NSInteger, MyButtonType) {
     MyButtonTypeCamera = 0,
     MyButtonTypeSelfCamera = 1,
@@ -36,8 +37,8 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
     self.backgroundView.contentMode = UIViewContentModeScaleToFill;
     [self.view addSubview:self.backgroundView];
     
-    NSArray *icons = @[@"\U0000e60d",@"\U0000e609",@"\U0000e60a",@"\U0000e60e"];
-    NSArray *titles = @[@"相机",@"自拍",@"相册",@"精选壁纸"];
+    NSArray *icons = @[@"\U0000e60d",@"\U0000e615",@"\U0000e60a",@"\U0000e614"];
+    NSArray *titles = @[@"相机",@"扫一扫",@"相册",@"精选壁纸"];
     CGFloat btnWidth = (APP_SCREEN_WIDTH - 30 * 2 - 15) / 2;
     for (int i = 0; i < 4; i++) {
         UIButton *btn = [self generateButton:icons[i] title:titles[i]];
@@ -94,6 +95,10 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
             };
             [cameraVc showPickerVc:self];
 
+            break;
+        }
+        case 1: {
+            [MDNavigator openViewController:[[MDScanViewController alloc] init] animated:YES];
             break;
         }
         default:

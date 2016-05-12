@@ -110,6 +110,8 @@
 		605035071CE0E60100930E27 /* MDShareService.m in Sources */ = {isa = PBXBuildFile; fileRef = 605034FF1CE0E60100930E27 /* MDShareService.m */; };
 		605035081CE0E60100930E27 /* MDShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 605035011CE0E60100930E27 /* MDShareView.m */; };
 		6050350B1CE0E71300930E27 /* UIImage+JWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050350A1CE0E71300930E27 /* UIImage+JWAdditions.m */; };
+		607EAA541CE4B52000D711C0 /* MDScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607EAA531CE4B52000D711C0 /* MDScanViewController.m */; };
+		607EAA561CE4B7B200D711C0 /* MDScanRect.png in Resources */ = {isa = PBXBuildFile; fileRef = 607EAA551CE4B7B200D711C0 /* MDScanRect.png */; };
 		60E816251CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E816241CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		60E8162F1CD9376700B70814 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60E816271CD9376700B70814 /* 1.jpg */; };
 		60E816301CD9376700B70814 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60E816281CD9376700B70814 /* 2.jpg */; };
@@ -292,6 +294,9 @@
 		605035011CE0E60100930E27 /* MDShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDShareView.m; sourceTree = "<group>"; };
 		605035091CE0E71300930E27 /* UIImage+JWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JWAdditions.h"; sourceTree = "<group>"; };
 		6050350A1CE0E71300930E27 /* UIImage+JWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JWAdditions.m"; sourceTree = "<group>"; };
+		607EAA521CE4B52000D711C0 /* MDScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDScanViewController.h; sourceTree = "<group>"; };
+		607EAA531CE4B52000D711C0 /* MDScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDScanViewController.m; sourceTree = "<group>"; };
+		607EAA551CE4B7B200D711C0 /* MDScanRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MDScanRect.png; sourceTree = "<group>"; };
 		60E816231CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		60E816241CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		60E816271CD9376700B70814 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -356,6 +361,8 @@
 				603058431C3150DA009D1750 /* Libraries */,
 				6030582F1C315034009D1750 /* AppDelegate.h */,
 				603058301C315034009D1750 /* AppDelegate.m */,
+				607EAA521CE4B52000D711C0 /* MDScanViewController.h */,
+				607EAA531CE4B52000D711C0 /* MDScanViewController.m */,
 				603A54901CDCDF4400E3A151 /* BaseNavigationViewController.h */,
 				603A54911CDCDF4400E3A151 /* BaseNavigationViewController.m */,
 				603058321C315034009D1750 /* ViewController.h */,
@@ -751,6 +758,7 @@
 		60E816261CD9376700B70814 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				607EAA551CE4B7B200D711C0 /* MDScanRect.png */,
 				6045B5331CE1D368002C0F10 /* 1234.png */,
 				6045B5311CE1D14D002C0F10 /* 123.jpg */,
 				6045B52F1CE1CF9D002C0F10 /* background.jpg */,
@@ -872,6 +880,7 @@
 				603A545C1CDC5C7D00E3A151 /* MDTabDSelected@3x.png in Resources */,
 				603A54571CDC5C7D00E3A151 /* MDTabCSelected@2x.png in Resources */,
 				6045B5301CE1CF9D002C0F10 /* background.jpg in Resources */,
+				607EAA561CE4B7B200D711C0 /* MDScanRect.png in Resources */,
 				60E816321CD9376700B70814 /* IMG_0570.JPG in Resources */,
 				60E816341CD9376700B70814 /* kongge1.jpg in Resources */,
 				603A54591CDC5C7D00E3A151 /* MDTabD@2x.png in Resources */,
@@ -988,6 +997,7 @@
 				603058311C315034009D1750 /* AppDelegate.m in Sources */,
 				6045B5831CE24C5F002C0F10 /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m in Sources */,
 				6045B5871CE24C5F002C0F10 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
+				607EAA541CE4B52000D711C0 /* MDScanViewController.m in Sources */,
 				6045B58D1CE24C5F002C0F10 /* ZLNavigationController.m in Sources */,
 				6045B5821CE24C5F002C0F10 /* ZLPhotoRect.m in Sources */,
 				6045B57E1CE24C5F002C0F10 /* ZLCameraImageView.m in Sources */,

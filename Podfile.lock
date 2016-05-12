@@ -26,6 +26,7 @@ PODS:
   - iOS-QR-Code-Encoder (0.0.1)
   - KLCPopup (1.0)
   - MBProgressHUD (0.9.2)
+  - MTBBarcodeScanner (1.8.5)
   - Qiniu (7.0.17):
     - AFNetworking (~> 2.0)
     - HappyDNS (~> 0.2)
@@ -46,6 +47,7 @@ DEPENDENCIES:
   - iOS-QR-Code-Encoder
   - KLCPopup (~> 1.0)
   - MBProgressHUD (~> 0.9.1)
+  - MTBBarcodeScanner (= 1.8.5)
   - Qiniu (~> 7.0)
   - QiniuUpload
   - RDVTabBarController (~> 1.1.9)
@@ -63,6 +65,7 @@ SPEC CHECKSUMS:
   iOS-QR-Code-Encoder: 5aef73d5d6ecdb2031ced14e0e6eadfb8c637514
   KLCPopup: 76c5a19227977f1e53d85236f9ef42257c168d98
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MTBBarcodeScanner: 0135798eb63d97f1f42baca61b52f8ad18a71212
   Qiniu: 2c05af1f9d580c036b18faf832cc98e98bfb21bc
   QiniuUpload: 723b717cff1ac94cbaa36f1276172185dfdde2c7
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a

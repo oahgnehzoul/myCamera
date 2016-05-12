@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4174F88A198B762372E4CCF7'
-               BlueprintName = 'SDWebImage'
+               BlueprintIdentifier = '6FCB92398CA4A41B5F2789D2'
+               BlueprintName = 'MTBBarcodeScanner'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libSDWebImage.a'>
+               BuildableName = 'libMTBBarcodeScanner.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

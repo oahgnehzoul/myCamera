@@ -12,3 +12,4 @@ pod 'iOS-QR-Code-Encoder'
 pod 'MBProgressHUD', '~> 0.9.1'
 pod "Qiniu", "~> 7.0"
 pod 'QiniuUpload'
+pod 'MTBBarcodeScanner', '1.8.5'
