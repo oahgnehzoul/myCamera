@@ -29,6 +29,13 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
 
 @implementation ViewController2
 
+- (id)initWithRouterParams:(NSDictionary *)params {
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"拍照";
@@ -75,12 +82,9 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
     switch (tag) {
         case 0: {
             ZLCameraViewController *cameraVc = [[ZLCameraViewController alloc] init];
-            // MaxCount, Default = 9
-            // CallBack
             cameraVc.callback = ^(NSArray *status){
                 
                 [self.assets addObjectsFromArray:status];
-//                [self reloadScrollView];
                 
                 for (ZLPhotoAssets *asset in status) {
                     ZLPhotoPickerBrowserPhoto *photo = [[ZLPhotoPickerBrowserPhoto alloc] init];
@@ -126,19 +130,9 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
 
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *srcImage        = [info objectForKey:UIImagePickerControllerOriginalImage];
-    CIContext *context       = [CIContext contextWithOptions:nil];
-    CIDetector *detector     = [CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:nil];
-    CIImage *image           = [CIImage imageWithCGImage:srcImage.CGImage];
-    NSArray *features        = [detector featuresInImage:image];
-    CIQRCodeFeature *feature = [features firstObject];
-    NSString *result         = feature.messageString;
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        if (result) {
-//            [self handlerCode:result];
-        }
-    }];
+    UIImage *oriImage = info[UIImagePickerControllerOriginalImage];
+    ZLPhotoPickerBrowserViewController *browserVc = [[ZLPhotoPickerBrowserViewController alloc] init];
+    [browserVc showHeadPortrait:[[UIImageView alloc] initWithImage:oriImage] originUrl:nil];
 }
 
 

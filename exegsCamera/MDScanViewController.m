@@ -24,6 +24,13 @@
 
 @implementation MDScanViewController
 
+- (instancetype)initWithRouterParams:(NSDictionary *)params {
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
 - (instancetype)initWithDeliveryCode {
     if (self = [super init]) {
         _isDeliveryCode = YES;

@@ -11,6 +11,10 @@
 #import "UMSocial.h"
 #import <PhotoEditFramework/PhotoEditFramework.h>
 #import "QiniuUploader.h"
+#import "Routable.h"
+#import "MDScanViewController.h"
+#import "ZLCameraViewController.h"
+#import "ViewController2.h"
 @interface AppDelegate ()
 
 @end
@@ -20,18 +24,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [QiniuToken registerWithScope:@"exegscamera:a.jpg" SecretKey:KQiniuSecretKey Accesskey:KQiniuAccessKey TimeToLive:10];
+//    [QiniuToken registerWithScope:@"exegscamera:a.jpg" SecretKey:KQiniuSecretKey Accesskey:KQiniuAccessKey TimeToLive:10];
 
-    
+
     [UMSocialData setAppKey:kMDUMengAppKey];
-    [UMSocialWechatHandler setWXAppId:kMDWeChatAppKey appSecret:kMDWeChatAppSecret url:@"http://www.umeng.com/social"];
-    [UMSocialQQHandler setQQWithAppId:kMDQQAppId appKey:kMDQQAppKey url:@"http://www.umeng.com/social"];
+    [UMSocialWechatHandler setWXAppId:kMDWeChatAppKey appSecret:kMDWeChatAppSecret url:@"https://github.com/oahgnehzoul/myCamera"];
+    [UMSocialQQHandler setQQWithAppId:kMDQQAppId appKey:kMDQQAppKey url:@"https://github.com/oahgnehzoul/myCamera"];
     [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:kMDWeiboAuthCallback];
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:kMDWeiboAppKey secret:kMDWeiboAppSecret RedirectURL:kMDWeiboAuthCallback];
     
     [self setupWithOptions:nil];
     JWNavigationViewController *nav = [[JWNavigationViewController alloc] initWithRootViewController:[[RootViewController alloc] init]];
-    
+    [[Routable sharedRouter] setNavigationController:nav];
+    [[Routable sharedRouter] map:@"scan" toController:[MDScanViewController class]];
+    [[Routable sharedRouter] map:@"photo" toController:[ViewController2 class]];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -58,8 +64,12 @@
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
     if ([shortcutItem.type isEqualToString:@"photo"]) {
-        NSURL *url = [NSURL URLWithString:@"home://"];
-        [[UIApplication sharedApplication] openURL:url];
+//        NSURL *url = [NSURL URLWithString:@"home://"];
+//        [[UIApplication sharedApplication] openURL:url];
+        [[Routable sharedRouter] open:@"photo" animated:YES];
+    }
+    if ([shortcutItem.type isEqualToString:@"scan"]) {
+        [[Routable sharedRouter] open:@"scan" animated:YES];
     }
 }
 
@@ -68,7 +78,9 @@
     if ([[UIApplication sharedApplication] respondsToSelector:@selector(shortcutItems)]) {
         UIApplicationShortcutIcon *itemAIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"photo"];
         UIApplicationShortcutItem *itemA = [[UIApplicationShortcutItem alloc] initWithType:@"photo" localizedTitle:@"拍照" localizedSubtitle:nil icon:itemAIcon userInfo:nil];
-        [UIApplication sharedApplication].shortcutItems = @[itemA];
+        UIApplicationShortcutIcon *itemBIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"scan"];
+        UIApplicationShortcutItem *itemB = [[UIApplicationShortcutItem alloc] initWithType:@"scan" localizedTitle:@"扫一扫" localizedSubtitle:nil icon:itemBIcon userInfo:nil];
+        [UIApplication sharedApplication].shortcutItems = @[itemA,itemB];
     }
     
     

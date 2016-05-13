@@ -14,6 +14,7 @@
 #import "AFNetWorking.h"
 #import "QiniuUploader.h"
 
+
 @interface ViewController1 ()<MDShareViewDelegate,UMSocialUIDelegate>
 
 @property (nonatomic, strong) UIImageView *imgView;
@@ -72,28 +73,30 @@
 
 - (void)doUpload {
     
-    QiniuFile *file = [[QiniuFile alloc] initWithFileData:UIImageJPEGRepresentation(self.imgView.image, 1.0f)];
-    QiniuUploader *uploader = [[QiniuUploader alloc] init];
-    [uploader addFile:file];
-    [uploader setUploadOneFileSucceeded:^(AFHTTPRequestOperation *operation, NSInteger index, NSString *key){
-        NSLog(@"index:%ld key:%@",(long)index,key);
-    }];
-    
-    [uploader setUploadOneFileProgress:^(AFHTTPRequestOperation *operation, NSInteger index, double percent){
-        NSLog(@"index:%ld percent:%lf",(long)index,percent);
-        
-    }];
-    [uploader setUploadAllFilesComplete:^(void){
-        NSLog(@"complete");
-    }];
-    [uploader setUploadOneFileFailed:^(AFHTTPRequestOperation *operation, NSInteger index, NSDictionary *error){
-        NSLog(@"%@",error);
-    }];
-    [uploader startUpload];
+//    QiniuFile *file = [[QiniuFile alloc] initWithFileData:UIImageJPEGRepresentation(self.imgView.image, 1.0f)];
+//    QiniuUploader *uploader = [[QiniuUploader alloc] init];
+//    [uploader addFile:file];
+//    [uploader setUploadOneFileSucceeded:^(AFHTTPRequestOperation *operation, NSInteger index, NSString *key){
+//        NSLog(@"index:%ld key:%@",(long)index,key);
+//    }];
+//    
+//    [uploader setUploadOneFileProgress:^(AFHTTPRequestOperation *operation, NSInteger index, double percent){
+//        NSLog(@"index:%ld percent:%lf",(long)index,percent);
+//        
+//    }];
+//    [uploader setUploadAllFilesComplete:^(void){
+//        NSLog(@"complete");
+//    }];
+//    [uploader setUploadOneFileFailed:^(AFHTTPRequestOperation *operation, NSInteger index, NSDictionary *error){
+//        NSLog(@"%@",error);
+//    }];
+//    [uploader startUpload];
 
-    
 //    [QiniuToken registerWithScope:@"exegscamera:a.jpg" SecretKey:KQiniuSecretKey Accesskey:KQiniuAccessKey TimeToLive:10];
-//    NSString *token = @"iN7NgwM31j4-BZacMjPrOQBs34UG1maYCAQmhdCV:EfmGKkmyhpPRrqLXFP1SVcmUJvU=:eyJzY29wZSI6InF0ZXN0YnVja2V0IiwiZGVhZGxpbmUiOjE0NjI4NjkyMDV9";
+//
+////    [QiniuToken registerWithScope:@"exegscamera:a.jpg" SecretKey:KQiniuSecretKey Accesskey:KQiniuAccessKey TimeToLive:10];
+////    NSString *token = @"iN7NgwM31j4-BZacMjPrOQBs34UG1maYCAQmhdCV:EfmGKkmyhpPRrqLXFP1SVcmUJvU=:eyJzY29wZSI6InF0ZXN0YnVja2V0IiwiZGVhZGxpbmUiOjE0NjI4NjkyMDV9";
+//    NSString *token = [[QiniuToken sharedQiniuToken] uploadToken];
 //    QNUploadManager *upMnanger = [[QNUploadManager alloc] init];
 //    NSData *data = UIImagePNGRepresentation(self.imgView.image);
 //    [upMnanger putData:data key:@"fadf" token:token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
@@ -136,11 +139,9 @@
     [upManager putFile:filePath key:nil token:self.token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
         NSLog(@"info ===== %@", info);
         NSLog(@"resp ===== %@", resp);
-        NSLog(@"%@/%@", self.domain, resp[@"key"]);
-//        [self.preViewImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.domain, resp[@"key"]]] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
-        
+        NSLog(@"%@/%@", self.domain, resp[@"key"]);        
     }
-        option:uploadOption];
+    option:uploadOption];
 }
 
 
@@ -239,6 +240,7 @@
         if (image) {
             //image为处理之后的图片。
             NSLog(@"1");
+            self.imgView.image = image;
         }
     }];
 

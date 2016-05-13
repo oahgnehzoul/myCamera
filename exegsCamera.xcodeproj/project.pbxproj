@@ -112,6 +112,7 @@
 		6050350B1CE0E71300930E27 /* UIImage+JWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6050350A1CE0E71300930E27 /* UIImage+JWAdditions.m */; };
 		607EAA541CE4B52000D711C0 /* MDScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607EAA531CE4B52000D711C0 /* MDScanViewController.m */; };
 		607EAA561CE4B7B200D711C0 /* MDScanRect.png in Resources */ = {isa = PBXBuildFile; fileRef = 607EAA551CE4B7B200D711C0 /* MDScanRect.png */; };
+		60D6327B1CE5B1A500AEDA61 /* scan.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D6327A1CE5B1A500AEDA61 /* scan.png */; };
 		60E816251CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E816241CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		60E8162F1CD9376700B70814 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60E816271CD9376700B70814 /* 1.jpg */; };
 		60E816301CD9376700B70814 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60E816281CD9376700B70814 /* 2.jpg */; };
@@ -297,6 +298,7 @@
 		607EAA521CE4B52000D711C0 /* MDScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDScanViewController.h; sourceTree = "<group>"; };
 		607EAA531CE4B52000D711C0 /* MDScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDScanViewController.m; sourceTree = "<group>"; };
 		607EAA551CE4B7B200D711C0 /* MDScanRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MDScanRect.png; sourceTree = "<group>"; };
+		60D6327A1CE5B1A500AEDA61 /* scan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan.png; sourceTree = "<group>"; };
 		60E816231CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		60E816241CD934DD00B70814 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		60E816271CD9376700B70814 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -758,6 +760,7 @@
 		60E816261CD9376700B70814 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				60D6327A1CE5B1A500AEDA61 /* scan.png */,
 				607EAA551CE4B7B200D711C0 /* MDScanRect.png */,
 				6045B5331CE1D368002C0F10 /* 1234.png */,
 				6045B5311CE1D14D002C0F10 /* 123.jpg */,
@@ -879,6 +882,7 @@
 				603A544F1CDC5C7D00E3A151 /* MDTabASelected@2x.png in Resources */,
 				603A545C1CDC5C7D00E3A151 /* MDTabDSelected@3x.png in Resources */,
 				603A54571CDC5C7D00E3A151 /* MDTabCSelected@2x.png in Resources */,
+				60D6327B1CE5B1A500AEDA61 /* scan.png in Resources */,
 				6045B5301CE1CF9D002C0F10 /* background.jpg in Resources */,
 				607EAA561CE4B7B200D711C0 /* MDScanRect.png in Resources */,
 				60E816321CD9376700B70814 /* IMG_0570.JPG in Resources */,

@@ -14,13 +14,20 @@
 #import "PHPhotoLibrary+CustomPhotoAlbum.h"
 #import "MBProgressHUD.h"
 #import "UIViewController+Alert.h"
+#import "AFNetWorking.h"
+#import <QiniuSDK.h>
 
-@interface AlbumViewController ()<ZLPhotoPickerBrowserViewControllerDelegate,UIActionSheetDelegate>
+@interface AlbumViewController ()<ZLPhotoPickerBrowserViewControllerDelegate,UIActionSheetDelegate,UMSocialUIDelegate>
 @property (weak,nonatomic) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *assets;
 @property (nonatomic, strong) NSMutableArray *photos;
 @property (nonatomic, strong) UIButton *saveButton;
 @property (nonatomic, strong) NSString *albumName;
+@property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString *domain;
+
+@property (nonatomic, strong) NSString *sharedImageUrl;
+@property (nonatomic, strong) UIImage *pickImage;
 
 //@property (nonatomic, strong) MBProgressHUD *hud;
 @end
@@ -147,7 +154,7 @@
     // 加一是为了有个添加button
     NSUInteger assetCount = self.assets.count;
     
-    CGFloat width = self.view.frame.size.width / column;
+    CGFloat width = (self.view.frame.size.width - 4) / column;
     for (NSInteger i = 0; i < assetCount; i++) {
         
         NSInteger row = i / column;
@@ -155,35 +162,124 @@
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.imageView.contentMode = UIViewContentModeScaleAspectFill;
-        btn.frame = CGRectMake(width * col, row * width, width, width);
+        btn.frame = CGRectMake((width + 1)* col, row * (width+ 1), width, width);
         
-        // UIButton
-//        if (i == self.assets.count){
-//            // 最后一个Button
-//            [btn setImage:[UIImage ml_imageFromBundleNamed:@"camera"] forState:UIControlStateNormal];
-//            [btn addTarget:self action:@selector(takeCamera) forControlEvents:UIControlEventTouchUpInside];
-//        }else{
-            // 如果是本地ZLPhotoAssets就从本地取，否则从网络取
-            if ([[self.assets objectAtIndex:i] isKindOfClass:[ZLCamera class]]) {
-                [btn setImage:[self.assets[i] thumbImage] forState:UIControlStateNormal];
-            }else if ([[self.assets objectAtIndex:i] isKindOfClass:[ZLPhotoAssets class]]) {
-                [btn setImage:[self.assets[i] thumbImage] forState:UIControlStateNormal];
-            }else if ([self.assets[i] isKindOfClass:[NSString class]]){
-                [btn sd_setImageWithURL:[NSURL URLWithString:self.assets[i]] forState:UIControlStateNormal];
-            }else if([self.assets[i] isKindOfClass:[ZLPhotoPickerBrowserPhoto class]]){
-                ZLPhotoPickerBrowserPhoto *photo = self.assets[i];
-                photo.toView = btn.imageView;
-                [btn sd_setImageWithURL:photo.photoURL forState:UIControlStateNormal];
-            }
-            btn.tag = i;
-            [btn addTarget:self action:@selector(tapBrowser:) forControlEvents:UIControlEventTouchUpInside];
-//        }
+        if ([[self.assets objectAtIndex:i] isKindOfClass:[ZLCamera class]]) {
+            [btn setImage:[self.assets[i] thumbImage] forState:UIControlStateNormal];
+        }else if ([[self.assets objectAtIndex:i] isKindOfClass:[ZLPhotoAssets class]]) {
+            [btn setImage:[self.assets[i] thumbImage] forState:UIControlStateNormal];
+        }else if ([self.assets[i] isKindOfClass:[NSString class]]){
+            [btn sd_setImageWithURL:[NSURL URLWithString:self.assets[i]] forState:UIControlStateNormal];
+        }else if([self.assets[i] isKindOfClass:[ZLPhotoPickerBrowserPhoto class]]){
+            ZLPhotoPickerBrowserPhoto *photo = self.assets[i];
+            photo.toView = btn.imageView;
+            [btn sd_setImageWithURL:photo.photoURL forState:UIControlStateNormal];
+        }
+        btn.tag = i;
+        [btn addTarget:self action:@selector(doEdit:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+        longPress.minimumPressDuration = 0.5;
+        [btn addGestureRecognizer:longPress];
         
         [self.scrollView addSubview:btn];
     }
     
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, CGRectGetMaxY([[self.scrollView.subviews lastObject] frame]));
 }
+
+- (void)doEdit:(UIButton *)btn {
+    [[MDImageEditorService sharedInstance] startWithImage:btn.imageView.image completionHandler:^(NSError *error, UIImage *image) {
+        if (image) {
+            //image为处理之后的图片。
+            ZLPhotoPickerBrowserPhoto *photo = self.assets[btn.tag];
+            photo.thumbImage = image;
+            [self reloadScrollView];
+        }
+    }];
+
+}
+
+- (void)longPress:(UILongPressGestureRecognizer *)gestureRecognizer {
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan) {
+        NSLog(@"长按");
+        UIButton *btn = (UIButton *)gestureRecognizer.view;
+        [self doShare:btn.imageView.image];
+    }
+}
+
+-(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
+    NSLog(@"%@",platformName);
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:@"http://115.231.183.102:9090/api/quick_start/simple_image_example_token.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.domain = responseObject[@"domain"];
+        self.token = responseObject[@"uptoken"];
+        [self uploadImageToQNFilePath:[self getImagePath:self.pickImage]];
+    }
+      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          NSLog(@"%@", error);
+      }];
+//   sina  qzone  wxsession  wxtimeline qq douban
+//    if ([platformName isEqualToString:@"sina"]) {
+//        socialData.extConfig.sinaData.urlResource.url = self.sharedImageUrl;
+//    }
+//    if ([platformName isEqualToString:@"qq"]) {
+//        socialData.title = @"123";
+//        socialData.extConfig.qqData.urlResource.url = self.sharedImageUrl;
+//    }
+}
+
+- (NSString *)getImagePath:(UIImage *)Image {
+    NSString *filePath = nil;
+    NSData *data = nil;
+    if (UIImagePNGRepresentation(Image) == nil) {
+        data = UIImageJPEGRepresentation(Image, 1.0);
+    } else {
+        data = UIImagePNGRepresentation(Image);
+    }
+    
+    //图片保存的路径
+    //这里将图片放在沙盒的documents文件夹中
+    NSString *DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    
+    //文件管理器
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //把刚刚图片转换的data对象拷贝至沙盒中
+    [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
+    NSString *ImagePath = [[NSString alloc] initWithFormat:@"/theFirstImage.png"];
+    [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:ImagePath] contents:data attributes:nil];
+    
+    //得到选择后沙盒中图片的完整路径
+    filePath = [[NSString alloc] initWithFormat:@"%@%@", DocumentsPath, ImagePath];
+    return filePath;
+}
+
+- (void)uploadImageToQNFilePath:(NSString *)filePath {
+    QNUploadManager *upManager = [[QNUploadManager alloc] init];
+    QNUploadOption *uploadOption = [[QNUploadOption alloc] initWithMime:nil progressHandler:^(NSString *key, float percent) {
+        NSLog(@"percent == %.2f", percent);
+    }
+                                                                 params:nil
+                                                               checkCrc:NO
+                                                     cancellationSignal:nil];
+    [upManager putFile:filePath key:nil token:self.token complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+        NSLog(@"info ===== %@", info);
+        NSLog(@"resp ===== %@", resp);
+        NSLog(@"%@/%@", self.domain, resp[@"key"]);
+        self.sharedImageUrl = [NSString stringWithFormat:@"%@/%@",self.domain,resp[@"key"]];
+    }
+    option:uploadOption];
+}
+
+
+- (void)doShare:(UIImage *)image {
+    self.pickImage = image;
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:kMDUMengAppKey shareText:@"我拍了一张美丽的照片，快来看看吧。" shareImage:image shareToSnsNames:@[UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToDouban] delegate:self];
+    ;
+}
+
 - (void)tapBrowser:(UIButton *)btn{
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:btn.tag inSection:0];
     // 图片游览器
