@@ -1,5 +1,4 @@
 platform :ios, '7.0'
-pod 'Reveal-iOS-SDK', :configurations => ['Debug']
 pod 'RDVTabBarController', '~> 1.1.9'
 pod 'SDWebImage', '~> 3.7.5'
 pod 'IconFont', '~> 1.0.2'
@@ -13,3 +12,5 @@ pod 'MBProgressHUD', '~> 0.9.1'
 pod "Qiniu", "~> 7.0"
 pod 'QiniuUpload'
 pod 'MTBBarcodeScanner', '1.8.5'
+pod 'Reveal-iOS-SDK', :configurations => ['Debug']
+pod 'GPUImage', '~> 0.1.7'

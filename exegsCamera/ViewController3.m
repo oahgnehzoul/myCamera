@@ -17,7 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"更多";
+    self.title = @"我的";
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:@"功能未开启" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 

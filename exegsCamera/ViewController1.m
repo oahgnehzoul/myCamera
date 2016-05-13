@@ -29,24 +29,31 @@
 
 @implementation ViewController1
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:@"功能未开启" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alert show];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"挑战";
+    self.title = @"首页";
     
     
-    _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    _imgView.image = [UIImage imageNamed:@"1.jpg"];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doTap)];
-    _imgView.userInteractionEnabled = YES;
-    [_imgView addGestureRecognizer:tap];
-    [self.view addSubview:_imgView];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.shareButton];
-    
-    self.uploadButton.frame = CGRectMake(_imgView.left, _imgView.bottom + 20, 40, 40);
-    [self.view addSubview:self.uploadButton];
-    self.pickImage = _imgView.image;
+//    _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    _imgView.image = [UIImage imageNamed:@"1.jpg"];
+//    
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doTap)];
+//    _imgView.userInteractionEnabled = YES;
+//    [_imgView addGestureRecognizer:tap];
+//    [self.view addSubview:_imgView];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.shareButton];
+//    
+//    self.uploadButton.frame = CGRectMake(_imgView.left, _imgView.bottom + 20, 40, 40);
+//    [self.view addSubview:self.uploadButton];
+//    self.pickImage = _imgView.image;
 }
 
 - (UIButton *)shareButton {
@@ -227,13 +234,13 @@
 //    shareView.delegate = self;
 }
 
-- (MDShareItem *)itemForShare:(MDShareType)shareType {
-    MDShareItem *item = [MDShareItem new];
-    item.title = @"分享图片";
-    item.image = [UIImage imageNamed:@"1.jpg"];
-    item.url = @"http://www.baidu.com";
-    return item;
-}
+//- (MDShareItem *)itemForShare:(MDShareType)shareType {
+//    MDShareItem *item = [MDShareItem new];
+//    item.title = @"分享图片";
+//    item.image = [UIImage imageNamed:@"1.jpg"];
+//    item.url = @"http://www.baidu.com";
+//    return item;
+//}
 
 - (void)doTap {
     [[MDImageEditorService sharedInstance] startWithImage:self.imgView.image completionHandler:^(NSError *error, UIImage *image) {

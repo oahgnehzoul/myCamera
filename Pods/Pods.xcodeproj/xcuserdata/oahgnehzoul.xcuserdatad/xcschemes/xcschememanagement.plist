@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GPUImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>HappyDNS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,7 +87,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3842099CD2F2181344489F7FC0106C0D</key>
+		<key>03AC2C9F255FB595FF675A82FCF2109C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,37 +112,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6610362E50A6DE8BACCA1F2885CD9157</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6627E2CE58504A680DE862D5526B302C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>890A1D2245301B423D744A0AEA10D388</key>
+		<key>69516C5CB557761FD5A158C1EEE3FEAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8FEA3A26178E51EAF02D5000A52B7E0F</key>
+		<key>9ADA103D2FFB6726DF1078EA62BEE20A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1F27286A8AA1E7343F7F1BB942266B8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B02B0D711576D527D6B84EF6A430EF56</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C5FD507144FC06105CD2015F43DBA328</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E07A3B3998136451FDF187ECFBC28D1F</key>
+		<key>D6D0BC1D76D846A1C771BA008D74A8A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -148,6 +143,21 @@
 			<true/>
 		</dict>
 		<key>ED20C28FE5CB0C4E3BC2174894B2EB74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F453C7E1100AA3B85283C718A59B8BC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB16CFDE6AF10BE51F7B6687230FDF8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC7BA2721A979E15FEF315668453DED9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

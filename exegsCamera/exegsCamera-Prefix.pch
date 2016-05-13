@@ -54,6 +54,7 @@
 #define KQiniuAccessKey @"zTsYhgPOKqKCfy88R5lxpXtc259e3owyDvbkvZ_1"
 #define KQiniuSecretKey @"cr5CQi3USHVh-SoGaIhXJpxTC3qgjYYAM5w0RVvp"
 
+#import "GPUImage.h"
 // 友盟分享
 #define kMDUMengAppKey @"572ed1a6e0f55a7b09001ba3"
 

@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - GPUImage (0.1.7)
   - HappyDNS (0.2.3)
   - HexColors (2.2.1)
   - IconFont (1.0.2)
@@ -42,6 +43,7 @@ PODS:
   - WCAlertView (1.0.1)
 
 DEPENDENCIES:
+  - GPUImage (~> 0.1.7)
   - HexColors (~> 2.2.1)
   - IconFont (~> 1.0.2)
   - iOS-QR-Code-Encoder
@@ -59,6 +61,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   HappyDNS: 6d85942e64c28b4fa61f8c76580398f52d6d1d11
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
   IconFont: 97ff724bc6d26aac018678a2da4f8542600e5a67

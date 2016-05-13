@@ -10,6 +10,7 @@
 #import "ZLPhoto.h"
 #import "AlbumViewController.h"
 #import "MDScanViewController.h"
+#import "BeatuyViewController.h"
 typedef NS_ENUM(NSInteger, MyButtonType) {
     MyButtonTypeCamera = 0,
     MyButtonTypeSelfCamera = 1,
@@ -25,6 +26,7 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
 @property (nonatomic , strong) NSMutableArray *photos;
 
 @property (weak,nonatomic) UIScrollView *scrollView;
+@property (nonatomic, assign) NSInteger tag;
 @end
 
 @implementation ViewController2
@@ -44,10 +46,10 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
     self.backgroundView.contentMode = UIViewContentModeScaleToFill;
     [self.view addSubview:self.backgroundView];
     
-    NSArray *icons = @[@"\U0000e60d",@"\U0000e615",@"\U0000e60a",@"\U0000e614"];
-    NSArray *titles = @[@"相机",@"扫一扫",@"相册",@"精选壁纸"];
+    NSArray *icons = @[@"\U0000e60d",@"\U0000e615",@"\U0000e60a",@"\U0000e617",@"\U0000e614"];
+    NSArray *titles = @[@"相机",@"扫一扫",@"相册",@"系统摄像头",@"精选壁纸"];
     CGFloat btnWidth = (APP_SCREEN_WIDTH - 30 * 2 - 15) / 2;
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 5; i++) {
         UIButton *btn = [self generateButton:icons[i] title:titles[i]];
         btn.frame = CGRectMake(30 + (i % 2) * (btnWidth + 15), 230 + (i / 2) * (13 + 73), btnWidth, 73);
         btn.tag = i;
@@ -113,12 +115,24 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
                 [imgPickerVC setDelegate:self];
                 [imgPickerVC setAllowsEditing:NO];
                 //显示Image Picker
+                self.tag = 0;
                 [self presentViewController:imgPickerVC animated:YES completion:nil];
             } else {
                 [WCAlertView showAlertWithTitle:@"无相册可用" message:nil customizationBlock:^(WCAlertView *alertView) {
                 } completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
                 } cancelButtonTitle:nil otherButtonTitles:@"知道了", nil];
             }
+            break;
+        }
+        case 3: {
+//            [self presentViewController:[[BeatuyViewController alloc] init] animated:YES completion:nil];
+            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+            imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePickerController.delegate = self;
+            self.tag = 999;
+            [self presentViewController:imagePickerController animated:YES completion:^{}];
+            break;
         }
         default:
             break;
@@ -130,11 +144,26 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
 
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *oriImage = info[UIImagePickerControllerOriginalImage];
-    ZLPhotoPickerBrowserViewController *browserVc = [[ZLPhotoPickerBrowserViewController alloc] init];
-    [browserVc showHeadPortrait:[[UIImageView alloc] initWithImage:oriImage] originUrl:nil];
+    if (self.tag == 999) {
+        self.tag = 0;
+        [self dismissViewControllerAnimated:YES completion:^{
+            UIImageWriteToSavedPhotosAlbum(info[UIImagePickerControllerOriginalImage], self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+        }];
+    } else {
+        UIImage *oriImage = info[UIImagePickerControllerOriginalImage];
+        ZLPhotoPickerBrowserViewController *browserVc = [[ZLPhotoPickerBrowserViewController alloc] init];
+        [browserVc showHeadPortrait:[[UIImageView alloc] initWithImage:oriImage] originUrl:nil];
+    }
 }
 
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if(!error){
+        NSLog(@"save success");
+    }else{
+        NSLog(@"save failed");
+    }
+}
 
 
 - (BOOL)shouldAutorotate {
