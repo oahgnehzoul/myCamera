@@ -61,7 +61,6 @@
         }
         
         if (editCtl) {
-//            [editCtl prefersStatusBarHidden];
             [[UIApplication sharedApplication] setStatusBarHidden:YES
                                                     withAnimation:UIStatusBarAnimationFade];
             [MDNavigator presentViewController:editCtl animated:YES completion:nil];
@@ -81,7 +80,6 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO
                                             withAnimation:UIStatusBarAnimationFade];
 
-//    [pController prefersStatusBarHidden];
     [pController dismissViewControllerAnimated:YES completion:nil];
 }
 

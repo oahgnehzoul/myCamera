@@ -49,7 +49,7 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
     NSArray *icons = @[@"\U0000e60d",@"\U0000e615",@"\U0000e60a",@"\U0000e617",@"\U0000e614"];
     NSArray *titles = @[@"相机",@"扫一扫",@"相册",@"系统摄像头",@"精选壁纸"];
     CGFloat btnWidth = (APP_SCREEN_WIDTH - 30 * 2 - 15) / 2;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 4; i++) {
         UIButton *btn = [self generateButton:icons[i] title:titles[i]];
         btn.frame = CGRectMake(30 + (i % 2) * (btnWidth + 15), 230 + (i / 2) * (13 + 73), btnWidth, 73);
         btn.tag = i;
@@ -65,10 +65,6 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
     button.layer.masksToBounds = YES;
     // 251 227 202
     button.backgroundColor = [UIColor colorWithRed:252/255.0 green:191/255.0 blue:204/255.0 alpha:1];
-//    button.backgroundColor = [UIColor colorWithRed:252/255.0 green:227/255.0 blue:204/255.0 alpha:1];
-    //绿
-//    button.backgroundColor = [UIColor colorWithRed:177/255.0 green:238/255.0 blue:215/255.0 alpha:1];
-
     button.titleLabel.font = [UIFont systemFontOfSize:15];
     button.titleLabel.textColor = [UIColor whiteColor];
     NSString *str = [NSString stringWithFormat:@"%@  %@",iconfont,title];
@@ -125,7 +121,6 @@ typedef NS_ENUM(NSInteger, MyButtonType) {
             break;
         }
         case 3: {
-//            [self presentViewController:[[BeatuyViewController alloc] init] animated:YES completion:nil];
             UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
             imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
             imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;

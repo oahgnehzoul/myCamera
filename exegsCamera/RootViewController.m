@@ -35,7 +35,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.fd_prefersNavigationBarHidden = YES;
     RDVTabBar *tabBar = [self tabBar];
-    NSArray *titles = @[@"挑战",@"拍照",@"发现"];
+    NSArray *titles = @[@"首页",@"拍照",@"发现"];
     NSArray *icons = @[@"MDTabA",@"MDTabC",@"MDTabE"];
     for (int i = 0; i < tabBar.items.count; i++) {
         NSString *title = titles[i];

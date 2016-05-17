@@ -64,8 +64,6 @@
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
     if ([shortcutItem.type isEqualToString:@"photo"]) {
-//        NSURL *url = [NSURL URLWithString:@"home://"];
-//        [[UIApplication sharedApplication] openURL:url];
         [[Routable sharedRouter] open:@"photo" animated:YES];
     }
     if ([shortcutItem.type isEqualToString:@"scan"]) {
@@ -89,11 +87,11 @@
     // camera360
     [[MDImageEditorService sharedInstance] setup];
     
-    md_dispatch_async_on_global_thread(^{
-//        [[MDShareService shareInstance] setup];
-//        [[MDShareService sharedInstance] setup];
-
-    });
+//    md_dispatch_async_on_global_thread(^{
+////        [[MDShareService shareInstance] setup];
+////        [[MDShareService sharedInstance] setup];
+//
+//    });
 
 }
 

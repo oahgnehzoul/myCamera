@@ -604,13 +604,6 @@ static CGFloat BOTTOM_HEIGHT = 60;
 //        height = [UIScreen mainScreen].bounds.size.height;
     }
     
-//    CGFloat radiox = width / height;
-//    CGFloat radioy = height / width;
-//    CGFloat maxScale = MAX(radiox, radioy);
-//    CGFloat minScale = MIN(radiox, radioy);
-//
-//    width = [UIScreen mainScreen].bounds.size.width;
-//    height = [UIScreen mainScreen].bounds.size.width * (minScale + 0.2);
     
     switch (_imageOrientation) {
         case XGImageOrientationDown:
@@ -755,68 +748,6 @@ static CGFloat BOTTOM_HEIGHT = 60;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-//- (UIImage *)fixOrientation:(UIImage *)srcImg
-//{
-//    if (srcImg.imageOrientation == UIImageOrientationUp) return srcImg;
-//    
-//    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-//    CGAffineTransform transform = CGAffineTransformIdentity;
-//    switch (orientation) {
-//        case UIDeviceOrientationPortraitUpsideDown:
-//            transform = CGAffineTransformTranslate(transform, srcImg.size.width, srcImg.size.height);
-//            transform = CGAffineTransformRotate(transform, M_PI);
-//            break;
-//            
-//        case UIDeviceOrientationLandscapeLeft:
-//            transform = CGAffineTransformTranslate(transform, srcImg.size.width, 0);
-//            transform = CGAffineTransformRotate(transform, M_PI_2);
-//            break;
-//            
-//        case UIDeviceOrientationLandscapeRight:
-//            transform = CGAffineTransformTranslate(transform, 0, srcImg.size.height);
-//            transform = CGAffineTransformRotate(transform, -M_PI_2);
-//            break;
-//        default:
-//            break;
-//    }
-//    
-//    switch (orientation) {
-//        case UIDeviceOrientationPortraitUpsideDown:
-//            transform = CGAffineTransformTranslate(transform, srcImg.size.width, 0);
-//            transform = CGAffineTransformScale(transform, -1, 1);
-//            break;
-//            
-//        case UIDeviceOrientationLandscapeLeft:
-//        case UIDeviceOrientationLandscapeRight:
-//            transform = CGAffineTransformTranslate(transform, srcImg.size.height, 0);
-//            transform = CGAffineTransformScale(transform, -1, 1);
-//            break;
-//        default:
-//            break;
-//    }
-//    
-//    CGContextRef ctx = CGBitmapContextCreate(NULL, srcImg.size.width, srcImg.size.height,
-//                                             CGImageGetBitsPerComponent(srcImg.CGImage), 0,
-//                                             CGImageGetColorSpace(srcImg.CGImage),
-//                                             CGImageGetBitmapInfo(srcImg.CGImage));
-//    CGContextConcatCTM(ctx, transform);
-//    switch (orientation) {
-//        case UIDeviceOrientationLandscapeLeft:
-//        case UIDeviceOrientationLandscapeRight:
-//            CGContextDrawImage(ctx, CGRectMake(0,0,srcImg.size.height,srcImg.size.width), srcImg.CGImage);
-//            break;
-//            
-//        default:
-//            CGContextDrawImage(ctx, CGRectMake(0,0,srcImg.size.width,srcImg.size.height), srcImg.CGImage);
-//            break;
-//    }
-//    
-//    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
-//    UIImage *img = [UIImage imageWithCGImage:cgimg];
-//    CGContextRelease(ctx);
-//    CGImageRelease(cgimg);
-//    return img;
-//}
 
 @end
 

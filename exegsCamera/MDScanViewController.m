@@ -9,8 +9,6 @@
 #import "MDScanViewController.h"
 #import "MTBBarcodeScanner.h"
 #import "WCAlertView.h"
-//#import "MDWebViewController.h"
-//#import "MDWebViewNavigation.h"
 
 @interface MDScanViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 

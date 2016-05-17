@@ -29,7 +29,6 @@
 @property (nonatomic, strong) NSString *sharedImageUrl;
 @property (nonatomic, strong) UIImage *pickImage;
 
-//@property (nonatomic, strong) MBProgressHUD *hud;
 @end
 
 @implementation AlbumViewController
@@ -220,14 +219,6 @@
       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
           NSLog(@"%@", error);
       }];
-//   sina  qzone  wxsession  wxtimeline qq douban
-//    if ([platformName isEqualToString:@"sina"]) {
-//        socialData.extConfig.sinaData.urlResource.url = self.sharedImageUrl;
-//    }
-//    if ([platformName isEqualToString:@"qq"]) {
-//        socialData.title = @"123";
-//        socialData.extConfig.qqData.urlResource.url = self.sharedImageUrl;
-//    }
 }
 
 - (NSString *)getImagePath:(UIImage *)Image {
