@@ -126,7 +126,7 @@
 - (void)displayPermissionMissingAlert {
     NSString *message = nil;
     if ([MTBBarcodeScanner scanningIsProhibited]) {
-        message = @"请先授权空格访问你的相机。设置方法:设置－隐私－相机－空格－开启";
+        message = @"请先授权exegsCamera访问你的相机。设置方法:设置－隐私－相机－空格－开启";
     } else if (![MTBBarcodeScanner cameraIsPresent]) {
         message = @"无相机";
     } else {

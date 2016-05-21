@@ -599,9 +599,6 @@ static CGFloat BOTTOM_HEIGHT = 60;
         [[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeRight) {
         width = srcImg.size.height;
         height = srcImg.size.width;
-    }else{
-//        width = [UIScreen mainScreen].bounds.size.width;
-//        height = [UIScreen mainScreen].bounds.size.height;
     }
     
     

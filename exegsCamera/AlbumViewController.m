@@ -127,7 +127,7 @@
         [alertVc addAction:cancelAction];
         [alertVc addAction:okAction];
         [alertVc addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = @"标题";
+            textField.placeholder = @"新相册名";
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alertTextFieldDidChange:) name:UITextFieldTextDidChangeNotification object:textField];
         }];
         [self presentViewController:alertVc animated:YES completion:nil];
